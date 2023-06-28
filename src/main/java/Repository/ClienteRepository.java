@@ -32,5 +32,9 @@ public class ClienteRepository {
     public boolean verificaSenhaCriptografada(Cliente cliente,String senha){
         return BCrypt.checkpw(senha,cliente.getSenha());
     }
+    public List<Cliente> getClientes() {
+        if (clientes.isEmpty())throw new NullPointerException("Lista de clientes vazia");
+        return clientes;
+    }
 
 }
