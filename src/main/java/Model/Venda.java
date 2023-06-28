@@ -1,3 +1,8 @@
+package Model;
+
+import Model.Cliente;
+import Model.Produto;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 

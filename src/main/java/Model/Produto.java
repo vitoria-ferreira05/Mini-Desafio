@@ -1,3 +1,5 @@
+package Model;
+
 public class Produto {
     private int codigoProduto;
     static int contCodigoProduto = 0;
