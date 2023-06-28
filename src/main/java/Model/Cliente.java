@@ -27,4 +27,7 @@ public class Cliente {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    public String mostrar(){
+        return "Nome: "+nome+"\nCPF: "+cpf+"\nEmail: "+email;
+    }
 }

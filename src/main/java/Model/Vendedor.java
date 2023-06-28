@@ -3,10 +3,11 @@ package Model;
 public class Vendedor {
     private String email, nome, senha, cpf;
 
-    public Vendedor(String email, String nome, String cpf) {
+    public Vendedor(String email, String nome, String cpf,String senha) {
         this.email = email;
         this.nome = nome;
         this.cpf = cpf;
+        this.senha=senha;
     }
 
     public String getEmail() {
@@ -27,5 +28,8 @@ public class Vendedor {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    public String mostrar(){
+        return "Nome: "+nome+"\nCPF: "+cpf+"\nEmail: "+email;
     }
 }
