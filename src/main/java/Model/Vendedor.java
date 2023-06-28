@@ -1,3 +1,5 @@
+package Model;
+
 public class Vendedor {
     private String email, nome, senha, cpf;
 
@@ -21,5 +23,9 @@ public class Vendedor {
 
     public String getCpf() {
         return cpf;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }
