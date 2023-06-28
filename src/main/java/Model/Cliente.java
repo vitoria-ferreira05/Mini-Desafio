@@ -3,10 +3,11 @@ package Model;
 public class Cliente {
     private String email, nome, senha, cpf;
 
-    public Cliente (String email,String nome, String cpf){
+    public Cliente (String email,String nome, String cpf, String senha){
         this.email=email;
         this.nome =nome;
         this.cpf=cpf;
+        this.senha = senha;
     }
     public String getEmail() {
         return email;

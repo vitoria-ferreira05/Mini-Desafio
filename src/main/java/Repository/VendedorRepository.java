@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class VendedorRepository {
     private List<Vendedor> vendedores = new ArrayList<>();
@@ -35,5 +36,11 @@ public class VendedorRepository {
     }
     public boolean verificaSenhaCriptografada(Vendedor vendedor,String senha){
         return BCrypt.checkpw(senha,vendedor.getSenha());
+    }
+    public Vendedor turnoDaVez(){
+        Random random = new Random();
+        int idvendedoraleatorio = random.nextInt(vendedores.size())+1;
+        return vendedores.get(idvendedoraleatorio);
+
     }
 }
