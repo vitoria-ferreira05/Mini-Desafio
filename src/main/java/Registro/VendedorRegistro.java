@@ -14,6 +14,13 @@ public class VendedorRegistro {
     private ProdutoRepository produtoRepository = new ProdutoRepository();
     private Vendedor vendedor;
     static Scanner scanner = new Scanner(System.in);
+    public VendedorRegistro(ClienteRepository clienteRepository, VendaRepository vendaRepository, VendedorRepository vendedorRepository, ProdutoRepository produtoRepository) {
+        this.clienteRepository = clienteRepository;
+        this.vendaRepository = vendaRepository;
+        this.vendedorRepository = vendedorRepository;
+        this.produtoRepository = produtoRepository;
+    }
+
     public void cadastrarVendedor() {
         System.out.println("Qual seu nome: ");
         String nomeC = scanner.nextLine();
