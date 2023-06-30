@@ -6,43 +6,49 @@ import Registro.VendedorRegistro;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
-
 public class Main {
-    private static VendedorRegistro vendedorRegistro = new VendedorRegistro();
-    private static ClienteRegistro clienteRegistro = new ClienteRegistro();
+
+
+    private static ClienteRepository clienteRepository = new ClienteRepository();
+    private static VendaRepository vendaRepository = new VendaRepository();
+    private static VendedorRepository vendedorRepository = new VendedorRepository();
+    private static ProdutoRepository produtoRepository = new ProdutoRepository();
+    private static VendedorRegistro vendedorRegistro = new VendedorRegistro(clienteRepository,vendaRepository,vendedorRepository,produtoRepository);
+    private static ClienteRegistro clienteRegistro = new ClienteRegistro(clienteRepository,vendaRepository,vendedorRepository,produtoRepository);
+
     private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
 
-        while (true){
-            System.out.println("1-Cadastrar Cliente\n2-Cadastrar Vendedor\n3-Logar como cliente\n4-Logar como vendedor\n5-Sair");
-            try {
-                switch (scanner.next()){
-                    case "1":
-                        clienteRegistro.cadastrarCliente();
-                        menuCliente();
-                        break;
-                    case "2":
-                        vendedorRegistro.cadastrarVendedor();
-                        menuVendedor();
-                        break;
-                    case "3":
-                        clienteRegistro.loginCliente();
-                        menuCliente();
-                        break;
-                    case "4":
-                        vendedorRegistro.loginVendedor();
-                        menuVendedor();
-                        break;
-                    case "5":
-                        exit(0);
-                    default:
-                        System.out.println("Opção inválida");
-                }
-            }catch (IllegalArgumentException erro){
-                System.out.println(erro.getMessage());
-            }
+         while (true){
+             System.out.println("1-Cadastrar Cliente\n2-Cadastrar Vendedor\n3-Logar como cliente\n4-Logar como vendedor\n5-Sair");
+             try {
+                 switch (scanner.next()){
+                     case "1":
+                         clienteRegistro.cadastrarCliente();
+                         menuCliente();
+                         break;
+                     case "2":
+                         vendedorRegistro.cadastrarVendedor();
+                         menuVendedor();
+                         break;
+                     case "3":
+                         clienteRegistro.loginCliente();
+                         menuCliente();
+                         break;
+                     case "4":
+                         vendedorRegistro.loginVendedor();
+                         menuVendedor();
+                         break;
+                     case "5":
+                         exit(0);
+                     default:
+                         System.out.println("Opção inválida");
+                 }
+             }catch (IllegalArgumentException erro){
+                 System.out.println(erro.getMessage());
+             }
 
-        }
+    }
     }
 
     public static void menuVendedor(){
@@ -75,13 +81,12 @@ public class Main {
                     default:
                         System.out.println("Opção inválida");
                 }
-            }catch (IllegalArgumentException erro){
+            }catch (IllegalArgumentException|NullPointerException erro){
                 System.out.println(erro.getMessage());
             }
 
         }
     }
-
 
     public static void menuCliente(){
         while(true){
