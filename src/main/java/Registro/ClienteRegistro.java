@@ -19,6 +19,13 @@ public class ClienteRegistro {
     private ProdutoRepository produtoRepository = new ProdutoRepository();
     private Cliente cliente;
     static Scanner scanner = new Scanner(System.in);
+    
+     public ClienteRegistro(ClienteRepository clienteRepository, VendaRepository vendaRepository, VendedorRepository vendedorRepository, ProdutoRepository produtoRepository) {
+        this.clienteRepository = clienteRepository;
+        this.vendaRepository = vendaRepository;
+        this.vendedorRepository = vendedorRepository;
+        this.produtoRepository = produtoRepository;
+    }
     public void cadastrarCliente() {
 
         System.out.println("Qual seu nome: ");
